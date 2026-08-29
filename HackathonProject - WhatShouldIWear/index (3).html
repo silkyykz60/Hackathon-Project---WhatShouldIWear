@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatShouldIWear — Hyperlocal Weather Outfit Suggester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◐</span>
+      <span class="brand-name">WhatShouldIWear</span>
+    </div>
+    <button id="wishlistToggle" class="icon-btn" title="View wishlist">
+      ♡ <span id="wishlistCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <!--LOCATION nd WEATHER-->
+    <section class="hero card">
+      <div class="location-row">
+        <input type="text" id="cityInput" placeholder="Where are you headed?">
+        <button id="citySearchBtn" class="btn">Check weather</button>
+        <button id="geoBtn" class="btn btn-outline">📍 Find me</button>
+      </div>
+
+      <div id="weatherDisplay" class="weather-display hidden">
+        <div class="weather-main">
+          <span id="weatherIcon" class="weather-icon">🌤️</span>
+          <div>
+            <div id="weatherTemp" class="weather-temp">--°C</div>
+            <div id="weatherPlace" class="weather-place">—</div>
+          </div>
+        </div>
+        <div class="weather-meta">
+  <span id="weatherCondition">—</span>
+  <span id="weatherFeelsLike">Feels like: —</span>
+  <span id="weatherHumidity">Humidity: —</span>
+  <span id="weatherWind">Wind: —</span>
+</div>
+
+      <p id="statusMsg" class="status-msg"></p>
+    </section>
+
+    <!-- ESSENTIALS -->
+    <section id="essentialsSection" class="essentials hidden">
+      <h2 class="section-title">Before you head out...</h2>
+      <div id="essentialsList" class="essentials-list"></div>
+    </section>
+
+   
+
+    <section id="forecastSection" class="card hidden">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">THE WEEK AHEAD</p>
+      <h2>Weather trends</h2>
+      <p id="forecastSummary" class="section-subtitle"></p>
+    </div>
+  </div>
+
+  <div class="forecast-chart-wrap">
+    <canvas id="forecastChart"></canvas>
+  </div>
+
+  <div id="forecastDays" class="forecast-days"></div>
+</section>
+
+<!-- OCCASION SELECTOR -->
+    <section id="occasionSection" class="occasion hidden">
+      <h2 class="section-title">What's the occasion?</h2>
+      <div class="occasion-chips" id="occasionChips">
+        <button class="chip active" data-occasion="college">🎓 College</button>
+        <button class="chip" data-occasion="workplace">💼 Workplace</button>
+        <button class="chip" data-occasion="presentation">🎤 Presentation</button>
+        <button class="chip" data-occasion="outing">🌆 Outing</button>
+        <button class="chip" data-occasion="traveling">🧳 Traveling</button>
+      </div>
+    </section>
+
+    <!-- OUTFIT SUGGESTIONS -->
+    <section id="outfitSection" class="outfits hidden">
+      <h2 class="section-title">What to wear today</h2>
+      <div id="outfitGrid" class="outfit-grid"></div>
+    </section>
+  </main>
+
+  <!-- WISHLIST DRAWER -->
+  <div id="wishlistDrawer" class="drawer">
+    <div class="drawer-header">
+      <h2>My Wishlist</h2>
+      <button id="closeWishlist" class="icon-btn">✕</button>
+    </div>
+    <div id="wishlistItems" class="wishlist-items">
+      <p class="empty-msg">No outfits saved yet. Tap ❤️ on any outfit to save it here.</p>
+    </div>
+  </div>
+  <div id="drawerOverlay" class="drawer-overlay"></div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- WEARCAST CHATBOT -->
+<button id="chatToggle" class="chat-toggle" aria-label="Open WearCast">
+  💬
+</button>
+
+<div id="chatbot" class="chatbot">
+  <div class="chat-header">
+    <div>
+      <strong>WearCast ✨</strong>
+      <span>Your weather + outfit buddy</span>
+    </div>
+    <button id="closeChat" class="chat-close">✕</button>
+  </div>
+
+  <div id="chatMessages" class="chat-messages">
+    <div class="chat-message bot">
+      Hey! 👋 I'm WearCast. Tell me what you're wondering about and I'll help you figure out the fit.
+    </div>
+
+    <div class="quick-prompts">
+      <button class="quick-prompt">What should I wear?</button>
+      <button class="quick-prompt">Will I need an umbrella?</button>
+      <button class="quick-prompt">What's the weather like?</button>
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <input
+      type="text"
+      id="chatInput"
+      placeholder="Ask WearCast..."
+      autocomplete="off"
+    >
+    <button id="sendChat" class="send-chat">➤</button>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

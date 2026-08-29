@@ -1,0 +1,679 @@
+
+:root {
+  
+  --color-bg: #F6F0E7;
+  --color-bg-alt: #E8D8D0;
+
+  --color-primary: #5A3E68;
+  --color-primary-dark: #29233D;
+
+  --color-accent: #E88B5B;
+  --color-accent-2: #D96C61;
+
+  --color-card: #FFFDF8;
+
+  --color-text: #29233D;
+  --color-text-soft: #756B70;
+  --color-border: #DED2CC;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 8px 24px rgba(90, 62, 104, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: #F6F0E7;
+  color: var(--color-text);
+  min-height: 100vh;
+  transition: background 1.2s ease, color 1.2s ease;
+  position: relative;
+}
+
+
+/*SUNRISE */
+body.sky-morning {
+  background:
+    radial-gradient(circle at 75% 18%, rgba(255, 226, 170, 0.9) 0 5%, transparent 18%),
+    linear-gradient(
+      180deg,
+      #B9A4C4 0%,
+      #E7B4A3 28%,
+      #F3C79D 55%,
+      #F8E4C5 78%,
+      #F6F0E7 100%
+    );
+}
+
+/*DAY */
+body.sky-day {
+  background:
+    radial-gradient(circle at 82% 15%, rgba(255, 245, 190, 0.95) 0 4%, transparent 12%),
+    linear-gradient(
+      180deg,
+      #79B7D5 0%,
+      #B9DCE7 38%,
+      #DDE9E4 68%,
+      #F3EDE3 100%
+    );
+}
+
+/*SUNSET */
+body.sky-evening {
+  background:
+    radial-gradient(circle at 72% 72%, rgba(255, 190, 105, 0.95) 0 4%, transparent 16%),
+    linear-gradient(
+      180deg,
+      #403A68 0%,
+      #785070 30%,
+      #B96B72 55%,
+      #E88B5B 75%,
+      #F0C49C 100%
+    );
+}
+
+/* NIGHT */
+body.sky-night {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 245, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 22% 25%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 12%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 42%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 65% 55%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 12% 70%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
+    linear-gradient(
+      180deg,
+      #090D25 0%,
+      #11183A 38%,
+      #20234A 68%,
+      #393052 100%
+    );
+
+  color: #FFF7EA;
+}
+
+/* Morning sunrise */
+body.sky-morning {
+  background: linear-gradient(
+    180deg,
+    #D9B8B0 0%,
+    #F0C9A8 35%,
+    #F7E9D2 70%,
+    #F6F0E7 100%
+  );
+}
+
+/* Day */
+body.sky-day {
+  background: linear-gradient(
+    180deg,
+    #B8D5E5 0%,
+    #DCE8E7 40%,
+    #F3EDE3 100%
+  );
+}
+
+/* Evening sunset */
+body.sky-evening {
+  background: linear-gradient(
+    180deg,
+    #5A3E68 0%,
+    #B86F72 38%,
+    #E88B5B 72%,
+    #F2D2AE 100%
+  );
+}
+
+/*  night sky */
+body.sky-night {
+  background: linear-gradient(
+    180deg,
+    #11152F 0%,
+    #1D2345 45%,
+    #342D50 75%,
+    #51415A 100%
+  );
+}
+
+h1, h2, h3, .brand-name { font-family: var(--font-display); }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+}
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.3rem; color: var(--color-primary-dark); }
+.brand-mark {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+.icon-btn {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform .15s ease;
+}
+.icon-btn:hover { transform: translateY(-1px); }
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(90, 62, 104, 0.06);
+  padding: 24px;
+  transition: background 0.8s ease, color 0.8s ease;
+}
+body.sky-night .card,
+body.sky-night .outfit-card {
+  background: rgba(255, 253, 248, 0.96);
+}
+
+body.sky-night .section-title {
+  color: #FFF7E8;
+}
+
+body.sky-night .essential-chip {
+  background: rgba(255, 253, 248, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFF7E8;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+  color: var(--color-primary-dark);
+}
+
+.hidden { display: none !important; }
+
+/* ------location --- */
+.location-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#cityInput {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+#cityInput:focus { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+
+.btn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .15s ease, transform .15s ease;
+}
+.btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.btn-outline:hover { background: var(--color-bg-alt); }
+
+.status-msg { color: var(--color-text-soft); font-size: 0.9rem; margin: 10px 0 0; min-height: 1.2em; }
+
+.weather-display { margin-top: 20px; }
+.weather-main { display: flex; align-items: center; gap: 16px; }
+.weather-icon { font-size: 3rem; }
+.weather-temp { font-size: 2.2rem; font-weight: 700; color: var(--color-primary-dark); }
+.weather-place { color: var(--color-text-soft); }
+.weather-meta {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Essentials ---------- */
+.essentials-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.essential-chip {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: var(--color-primary-dark);
+}
+
+/* ---- Occasion --- */
+.occasion-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  transition: all .15s ease;
+}
+.chip:hover { border-color: var(--color-primary); }
+.chip.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/*Outfit cards */
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+.outfit-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: none;
+}
+.outfit-emoji { font-size: 2.4rem; }
+.outfit-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.outfit-advice {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text-soft);
+  margin: -2px 0 4px;
+  max-width: 32ch;
+}
+.outfit-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.outfit-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 10px;
+}
+.action-btns { display: flex; gap: 6px; }
+.mini-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform .12s ease, background .12s ease;
+}
+.mini-btn:hover { transform: scale(1.08); }
+.mini-btn.liked { background: #e7f6ec; border-color: #7fd39a; }
+.mini-btn.disliked { background: #fdeaea; border-color: var(--color-accent-2); }
+.mini-btn.wished { background: #fff1e8; border-color: var(--color-accent); color: var(--color-accent-2); }
+
+/* -- Wishlist--- */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 340px;
+  height: 100%;
+  background: var(--color-card);
+  box-shadow: -8px 0 24px rgba(0,0,0,0.12);
+  padding: 20px;
+  transition: right .25s ease;
+  z-index: 20;
+  overflow-y: auto;
+}
+.drawer.open { right: 0; }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: none;
+  z-index: 15;
+}
+.drawer-overlay.open { display: block; }
+.wishlist-items { display: flex; flex-direction: column; gap: 12px; }
+.wishlist-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.empty-msg { color: var(--color-text-soft); font-size: 0.9rem; }
+
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 30;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 600px) {
+  .weather-meta { gap: 12px; }
+  .drawer { width: 85%; right: -100%; }
+}
+
+
+
+.chat-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 40;
+  transition: transform 0.2s ease;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.08);
+}
+
+.chatbot {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 500px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 40;
+}
+
+.chatbot.open {
+  display: flex;
+}
+
+
+
+.chat-header {
+  padding: 16px 18px;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.chat-header span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.chat-close {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Messages */
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-message {
+  max-width: 85%;
+  padding: 11px 14px;
+  border-radius: 15px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/*  prompts */
+
+.quick-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.quick-prompt {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.quick-prompt:hover {
+  border-color: var(--color-primary);
+}
+
+
+
+.chat-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+#chatInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+#chatInput:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.send-chat {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.send-chat:hover {
+  background: var(--color-primary-dark);
+}
+
+@media (max-width: 600px) {
+  .chatbot {
+    right: 16px;
+    bottom: 85px;
+    width: calc(100vw - 32px);
+    height: 70vh;
+  }
+
+  .chat-toggle {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+.outfit-advice {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text-soft);
+  margin: -2px 0 6px;
+  max-width: 34ch;
+}
+
+.forecast-chart-wrap {
+  height: 260px;
+  margin: 18px 0 24px;
+}
+
+#forecastChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.forecast-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid var(--color-border);
+}
+
+.forecast-day {
+  padding: 14px 10px;
+  border-right: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.forecast-day:last-child {
+  border-right: none;
+}
+
+.forecast-day-name {
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+  margin-bottom: 8px;
+}
+
+.forecast-temp {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.forecast-temp span {
+  color: var(--color-text-soft);
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+.forecast-rain {
+  margin-top: 7px;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 700px) {
+  .forecast-days {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .forecast-day:nth-child(4) {
+    border-right: none;
+  }
+}
+
+
+
+.outfit-card {
+  animation: wearcastOutfitReveal 0.55s ease both;
+  animation-delay: var(--outfit-delay, 0ms);
+}
+
+@keyframes wearcastOutfitReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
